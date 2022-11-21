@@ -14,3 +14,10 @@ const post = (url) =>
 
 const getDifficulty = () => get(url + `/api/difficulty`)
 const getQuestions = (difficulty) => get(url + `/api/questions?difficulty=${difficulty}`)
+
+const Api = {
+  getDifficulty,
+  getQuestions
+}
+
+export default Api
