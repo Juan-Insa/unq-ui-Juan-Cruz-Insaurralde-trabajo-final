@@ -1,8 +1,8 @@
-import React from "react"
+import {useEffect, useState} from "react"
 import background from "./src/main-background.jpg"
 import Api from "../api/Api.js"
 
-const Start = () => (
+const Start = (difficulties) => (
   <div class="container" style={{ backgroundImage: `url(${background})`, backgroundRepeat: 'no-repeat'}}>
     <div class="row">
       <div class="col">
@@ -10,44 +10,41 @@ const Start = () => (
       </div>
     </div>
     <Difficulty/>
-    {Api.getDifficulty()}
   </div>
 ) 
 
-const Difficulty = () => (
+const Difficulty = () => {
+  const [difficulties, setDifficulties] = useState([])
+  
+  useEffect(() => {
+    Api.getDifficulty()
+      .then((data) => setDifficulties(data))
+  }, [])
+
+  return (
   <div class="row">
     <div class="col fw-bold" style={{ margin:"40px", color:"whitesmoke", textShadow:"3px 3px 5px #000000"}}>
       Elegir dificultad:
-    </div>
-    <div class="row justify-content-center">
+    </div> 
+    
+      {difficulties.map(d => 
+        <div key={d}>
+          {DifficultyButton(d)}
+          {console.log(d)}
+        </div>)}
+    
+ 
+  </div>
+)}
+
+const DifficultyButton = (diff) => (
+  <div class="row justify-content-center">
       <div class="col-8 d-grid">
         <button type="button " class="btn btn-light" style={{ margin:"10px"}}>
-          Fácil 
+          {diff}
         </button>
       </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-8 d-grid">
-        <button type="button" class="btn btn-light" style={{ margin:"10px"}}>
-          Normal 
-        </button>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-8 d-grid">
-        <button type="button" class="btn btn-light" style={{ margin:"10px"}}>
-          Dificil 
-        </button>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-8 d-grid">
-        <button type="button" class="btn btn-light" style={{ margin:"10px"}}>
-          Extremo 
-        </button>
-      </div>
-    </div>
-  </div>
 )
 
 export default Start

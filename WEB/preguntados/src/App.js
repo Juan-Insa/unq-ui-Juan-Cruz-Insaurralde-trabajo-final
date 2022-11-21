@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Start from './components/Start';
+import Browser from './routes/BrowserRoute';
 
 function App() {
   return (
     <div className="App">
       <header >
-        <Start/>
+        <Browser/>
       </header>
     </div>
   );
