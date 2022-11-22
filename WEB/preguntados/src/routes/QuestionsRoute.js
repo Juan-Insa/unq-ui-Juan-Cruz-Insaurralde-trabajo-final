@@ -15,7 +15,7 @@ const QuestionsRoute = () => {
   }, [difficulty])
 
   return (
-    <Questions difficulty={result}/>
+    <Questions data={result}/>
   )
 }
 

@@ -7,8 +7,8 @@ const Browser = () =>
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Start/>}/>
-      <Route path="/start" element={<Start/>}/>
-      <Route path="/questions" element={<QuestionsRoute/>}/>
+      <Route path="start" element={<Start/>}/>
+      <Route path="questions" element={<QuestionsRoute/>}/>
     </Routes>
 </BrowserRouter>
 

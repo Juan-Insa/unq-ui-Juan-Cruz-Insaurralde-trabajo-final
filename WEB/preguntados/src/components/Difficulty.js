@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react"
-import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import Api from "../api/Api.js"
 
 const Difficulty = () => {
@@ -18,27 +18,18 @@ const Difficulty = () => {
     {difficulties.map(d => 
       <div key={d}>
         {DifficultyButton(d)}
-        {console.log(d)}
       </div>)}
   </div>
 )}
 
-const DifficultyButton = (diff) => {
-  
-  const navigate = useNavigate()
-  
-  const goToQuestions = () => {
-    navigate(`/questions?difficulty=${diff}`)
-  } 
-
-  return (
+const DifficultyButton = (diff) => (
   <div class="row justify-content-center">
     <div class="col-4 d-grid">
-      <button type="button " class="btn btn-light" style={{ margin:"10px"}} onClick={() => goToQuestions()}>
-        {diff}
+      <button type="button " class="btn btn-light" style={{ margin:"10px"}}>
+        <Link to={`/questions?difficulty=${diff}`} style={{textDecoration:"none", color:"black"}}>{diff}</Link> 
       </button>
     </div>
   </div>
-)}
+)
 
 export default Difficulty
