@@ -4,7 +4,7 @@ import Api from "../api/Api";
 
 const Questions = (data) => {
   let [dataQ,setDataQ] = useState([])
-  let [current, setCurrent] = useState((-3));
+  let [current, setCurrent] = useState((-2));
 
   useEffect(() => {
     setDataQ(data.data)
@@ -17,7 +17,7 @@ const Questions = (data) => {
       <div class="col fw-bold" style={{ margin:"80px", color:"whitesmoke", textShadow:"3px 3px 5px #000000"}}>
         <div style={{ margin:"10px"}}>
           <p>{current}/10</p>
-          <p>Answer the following cuestion</p>
+          <p>Answer the following:</p>
         </div>
         {dataQ[current] ? dataQ[current].question : null}
       </div>
@@ -40,7 +40,7 @@ const AnswerButton = (option, id, answer) => {
   return (
     <div class="row justify-content-center">
       <div class="col-4 d-grid">
-        <button class="btn btn-light" style={{ margin:"10px"}} onClick={() => HandleAnswer()}>
+        <button class="btn btn-light" style={{ margin:"10px", backgroundColor: result ? (result.answer ? "green" : "red") : null}} onClick={() => HandleAnswer()}>
           {answer}
         </button>
       </div>
