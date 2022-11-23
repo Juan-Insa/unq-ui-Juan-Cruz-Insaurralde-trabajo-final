@@ -7,7 +7,7 @@ import Questions from "../components/Questions"
 const QuestionsRoute = () => {
   const [params] = useSearchParams()
   const difficulty = params.get('difficulty')
-  const [result, setResult] = useState()
+  const [result, setResult] = useState([])
 
   useEffect(() => {
     Api.getQuestions(difficulty)

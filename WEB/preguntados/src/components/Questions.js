@@ -1,15 +1,27 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const Questions = (data) => {
-  let currentQ = 0
-  let [actualQ, setActualQ] = useState()
+  let [dataQ,setDataQ] = useState()
+  let [current, setCurrent] = useState((-6));
+
+  useEffect(() => {
+    setDataQ(data.data[0])
+    setCurrent(current + 1)
+    console.log(data.data)
+    console.log(dataQ)
+  }, [data, dataQ])
   
-  console.log(data.data[0])
   return (
-    <div>lalala
+    <div>
       
     </div>
    )
+}
+
+const DisplayQuestion = (question) => {
+  <div>
+
+  </div>
 }
 
 export default Questions

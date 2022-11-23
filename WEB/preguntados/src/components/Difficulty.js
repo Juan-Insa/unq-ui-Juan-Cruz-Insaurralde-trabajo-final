@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react"
 import { Link } from "react-router-dom"
 import Api from "../api/Api.js"
+import Title from "./commons/Title.js"
 
 const Difficulty = () => {
   const [difficulties, setDifficulties] = useState([])
@@ -12,7 +13,8 @@ const Difficulty = () => {
 
   return (
   <div class="row">
-    <div class="col fw-bold" style={{ margin:"40px", color:"whitesmoke", textShadow:"3px 3px 5px #000000"}}>
+    <Title/>
+    <div class="col fw-bold" style={{ margin:"100px", color:"whitesmoke", textShadow:"3px 3px 5px #000000"}}>
       Elegir dificultad:
     </div> 
     {difficulties.map(d => 
