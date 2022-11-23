@@ -11,7 +11,7 @@ const QuestionsRoute = () => {
 
   useEffect(() => {
     Api.getQuestions(difficulty)
-      .then((data) => setResult(data))
+      .then(data => setResult(data))
   }, [difficulty])
 
   return (

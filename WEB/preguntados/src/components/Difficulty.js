@@ -15,7 +15,7 @@ const Difficulty = () => {
   <div class="row">
     <Title/>
     <div class="col fw-bold" style={{ margin:"100px", color:"whitesmoke", textShadow:"3px 3px 5px #000000"}}>
-      Elegir dificultad:
+      Choose:
     </div> 
     {difficulties.map(d => 
       <div key={d}>
@@ -27,7 +27,7 @@ const Difficulty = () => {
 const DifficultyButton = (diff) => (
   <div class="row justify-content-center">
     <div class="col-4 d-grid">
-      <button type="button " class="btn btn-light" style={{ margin:"10px"}}>
+      <button class="btn btn-light" style={{ margin:"10px"}}>
         <Link to={`/questions?difficulty=${diff}`} style={{textDecoration:"none", color:"black"}}>{diff}</Link> 
       </button>
     </div>
