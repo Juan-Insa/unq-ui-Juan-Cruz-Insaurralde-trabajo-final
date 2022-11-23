@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react"
 import Title from "./commons/Title";
+import Api from "../api/Api";
 
 const Questions = (data) => {
-  let [dataQ,setDataQ] = useState()
-  let [current, setCurrent] = useState((-6));
+  let [dataQ,setDataQ] = useState([])
+  let [current, setCurrent] = useState((-3));
 
   useEffect(() => {
-    setDataQ(data.data[0])
+    setDataQ(data.data)
     setCurrent(current + 1)
-    console.log(data.data)
-    console.log(dataQ)
-  }, [data, dataQ])
-  
+  }, [data])
+
   return (
     <div class="container">
       <Title/>
@@ -20,31 +19,33 @@ const Questions = (data) => {
           <p>{current}/10</p>
           <p>Answer the following cuestion</p>
         </div>
-        {dataQ.question}
+        {dataQ[current] ? dataQ[current].question : null}
       </div>
-        {DifficultyButton(dataQ.option1, dataQ.id)} 
-        {DifficultyButton(dataQ.option2, dataQ.id)} 
-        {DifficultyButton(dataQ.option3, dataQ.id)} 
-        {DifficultyButton(dataQ.option4, dataQ.id)} 
+      {AnswerButton("option1", dataQ[current] ? dataQ[current].id : null, dataQ[current] ? dataQ[current].option1 : null)} 
+      {AnswerButton("option2", dataQ[current] ? dataQ[current].id : null, dataQ[current] ? dataQ[current].option2 : null)} 
+      {AnswerButton("option3", dataQ[current] ? dataQ[current].id : null, dataQ[current] ? dataQ[current].option3 : null)} 
+      {AnswerButton("option4", dataQ[current] ? dataQ[current].id : null, dataQ[current] ? dataQ[current].option4 : null)} 
     </div>
-  
-   )
+  )
 }
 
-const DifficultyButton = (option) => {
+const AnswerButton = (option, id, answer) => {
+  let [result, setResult] = useState()
   
   const HandleAnswer = () => {
-      
+    Api.postAnswer(id, option, setResult)
+    console.log(result)
   }
   
   return (
-  <div class="row justify-content-center">
-    <div class="col-4 d-grid">
-      <button class="btn btn-light" style={{ margin:"10px"}} onClick={() => HandleAnswer()}>
-        {option}
-      </button>
+    <div class="row justify-content-center">
+      <div class="col-4 d-grid">
+        <button class="btn btn-light" style={{ margin:"10px"}} onClick={() => HandleAnswer()}>
+          {answer}
+        </button>
+      </div>
     </div>
-  </div>
-)}
+  )
+}
 
 export default Questions
