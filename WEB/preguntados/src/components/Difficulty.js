@@ -15,21 +15,19 @@ const Difficulty = () => {
   <div class="row">
     <Title/>
     <div class="col fw-bold" style={{ margin:"100px", color:"whitesmoke", textShadow:"3px 3px 5px #000000"}}>
-      Choose:
+      Choose difficulty:
     </div> 
-    {difficulties.map(d => 
+    {difficulties?.map(d => 
       <div key={d}>
-        {DifficultyButton(d)}
+        { difficulties ? DifficultyButton(d) : null }
       </div>)}
   </div>
 )}
 
 const DifficultyButton = (diff) => (
   <div class="row justify-content-center">
-    <div class="col-4 d-grid">
-      <button class="btn btn-light" style={{ margin:"10px"}}>
-        <Link to={`/questions?difficulty=${diff}`} style={{textDecoration:"none", color:"black"}}>{diff}</Link> 
-      </button>
+    <div class="col-4 d-grid" style={{ margin:"10px" }}>
+      <Link class="btn btn-light" to={`/questions?difficulty=${diff}`} style={{textDecoration:"none", color:"black"}}>{diff}</Link> 
     </div>
   </div>
 )
