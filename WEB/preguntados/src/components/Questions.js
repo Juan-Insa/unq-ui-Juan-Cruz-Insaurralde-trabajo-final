@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Title from "./commons/Title";
-import Api from "../api/Api";
-import { useNavigate, useLocation} from "react-router-dom";
+import AnswerButton from "./Answers";
+import { useNavigate } from "react-router-dom";
 
 
 const Questions = (data) => {
@@ -15,7 +15,7 @@ const Questions = (data) => {
       setCurrent(current + 1)
       setCorrectAnswers(correctAnswers + (result ? 1 : 0))
       console.log(result)
-    }, 0)
+    }, 2000)
     return () => clearTimeout(timer)
   }
 
@@ -48,33 +48,6 @@ const Questions = (data) => {
       {AnswerButton("option2", dataQ[current] ? dataQ[current].id : null, dataQ[current] ? dataQ[current].option2 : null, NextRound)} 
       {AnswerButton("option3", dataQ[current] ? dataQ[current].id : null, dataQ[current] ? dataQ[current].option3 : null, NextRound)} 
       {AnswerButton("option4", dataQ[current] ? dataQ[current].id : null, dataQ[current] ? dataQ[current].option4 : null, NextRound)} 
-    </div>
-  )
-}
-
-const AnswerButton = (option, id, answer, next) => {
-  const [result, setResult] = useState(null)
-
-  useEffect(() => {
-    setResult(null)
-  },[id])
-
-  const Result = (data) => {
-    setResult(data)
-    next(data.answer)
-  }
-
-  const HandleAnswer = () => {
-    Api.postAnswer(id, option, Result)
-  }
-  
-  return (
-    <div class="row justify-content-center">
-      <div class="col-4 d-grid">
-        <button type="button" class="btn btn-light" style={{ margin:"10px", backgroundColor: result ? (result.answer ? "green" : "red") : null}} onClick={HandleAnswer}>
-          {answer}
-        </button>
-      </div>
     </div>
   )
 }
