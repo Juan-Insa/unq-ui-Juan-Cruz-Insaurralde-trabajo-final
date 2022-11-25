@@ -14,9 +14,9 @@ const Difficulty = () => {
   return (
   <div class="row">
     <Title/>
-    <div class="col fw-bold" style={{ margin:"100px", color:"whitesmoke", textShadow:"3px 3px 5px #000000"}}>
+    <h5 class="col fw-bold" style={{ margin:"100px", color:"whitesmoke", textShadow:"3px 3px 5px #000000"}}>
       Choose difficulty:
-    </div> 
+    </h5> 
     {difficulties?.map(d => 
       <div key={d}>
         { difficulties ? DifficultyButton(d) : null }
