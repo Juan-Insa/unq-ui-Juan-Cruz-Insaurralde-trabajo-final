@@ -27,6 +27,8 @@ Para poder jugar Preguntados se deberá instalar Nodejs + un IDE como Visual Stu
 
 5- Abrir Visual Studio Code e importar la carpeta del juego desde file->Open folder. 
 
-6- Una vez cargado el proyecto, hacer click segundario sobre la carpeta WEB desde el explorador de archivos de VSC, abrir la terminal con la opción "open in integrated terminal" y ejecutar el mensaje para levantar la aplicación: npm start. Esperar unos segundos hasta que el navegador por defecto abra una pestaña donde se va a cargar el juego.
+6- Una vez cargado el proyecto, hacer click segundario sobre la carpeta WEB desde el explorador de archivos de VSC, abrir la terminal con la opción "open in integrated terminal" y ejecutar el mensaje: npm install react-scripts --save, para instalar las dependencias necesarias para correr la aplicación
+
+7- Ejecutar el mensaje: npm start. Esperar unos segundos hasta que el navegador por defecto abra una pestaña donde se va a cargar el juego.
 
 Repetir este último paso cada vez que se desea ejecutar el juego.
