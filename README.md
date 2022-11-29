@@ -10,7 +10,9 @@ Para poder jugar Preguntados se deberá instalar Nodejs + un IDE como Visual Stu
 #### Links de descarga: 
   
   Nodejs -> https://nodejs.org/en/
+  
   VSC -> https://code.visualstudio.com/
+  
   Preguntados -> https://github.com/Juan-Insa/unq-ui-Juan-Cruz-Insaurralde-trabajo-final/releases
 
 #### Pasos:
